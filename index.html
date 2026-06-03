@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales Gym — Roleplay di vendita B2B sul mercato italiano</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --black:#0a0a0a;
+  --ink:#1c1c1c;
+  --grey:#5a5a5a;
+  --orange:#ffad01;
+  --pink:#ff50ff;
+  --blue:#4850ff;
+  --paper:#f3f2ec;
+  --white:#ffffff;
+  --maxw:1140px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--black);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+h1,h2,h3,h4,.display{font-family:'Archivo',sans-serif;text-transform:uppercase;letter-spacing:-1px;line-height:0.98}
+a{color:inherit;text-decoration:none}
+
+.btn{font-family:'Archivo',sans-serif;font-weight:900;text-transform:uppercase;font-size:15px;display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border:4px solid var(--black);background:var(--pink);color:var(--black);cursor:pointer;box-shadow:5px 5px 0 var(--black);transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--black)}
+.btn:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--black)}
+.btn.alt{background:var(--orange)}
+.btn.big{font-size:19px;padding:20px 38px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:var(--black);color:var(--white);border-bottom:4px solid var(--orange)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:'Archivo',sans-serif;font-weight:900;font-size:25px;letter-spacing:-1.5px;text-transform:uppercase;line-height:.9}
+.logo .s{color:var(--orange)}
+.logo .tag{font-size:9px;letter-spacing:2px;color:var(--pink);display:block;font-weight:800;margin-top:1px}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{font-family:'Archivo',sans-serif;font-weight:800;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#cfcfcf;transition:color .15s}
+.nav-links a:hover{color:var(--orange)}
+.nav .btn{padding:11px 20px;font-size:13px;box-shadow:3px 3px 0 var(--orange)}
+.nav .btn:hover{box-shadow:5px 5px 0 var(--orange)}
+
+/* hero */
+.hero{padding:72px 0 70px}
+.hero-box{background:var(--orange);border:5px solid var(--black);box-shadow:10px 10px 0 var(--black);padding:46px 48px}
+.hlabel{display:inline-block;font-family:'Archivo',sans-serif;font-weight:900;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;background:var(--black);color:var(--white);padding:7px 13px;margin-bottom:24px}
+.hero h1{font-size:clamp(32px,5.4vw,60px);font-weight:900;color:var(--black);max-width:18ch;margin-bottom:24px}
+.hero .sub{font-size:clamp(15px,1.7vw,18px);color:#241a00;font-weight:500;max-width:64ch;margin-bottom:32px;line-height:1.5}
+.hero .cta-row{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.hero .note{font-size:13px;color:#3a2c00;font-weight:700}
+
+section{padding:78px 0}
+.sec-tag{font-family:'Archivo',sans-serif;font-weight:900;font-size:12px;letter-spacing:2px;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;color:var(--black)}
+.sec-tag::before{content:"";width:30px;height:4px;background:var(--blue)}
+.sec-tag.pink::before{background:var(--pink)}
+.sec-tag.orange::before{background:var(--orange)}
+
+/* problem */
+.problem h2{font-size:clamp(26px,4vw,42px);font-weight:900;max-width:22ch;margin-bottom:40px}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pain{background:var(--white);border:4px solid var(--black);padding:26px 24px;box-shadow:6px 6px 0 var(--black)}
+.pain .ic{font-family:'Archivo',sans-serif;font-weight:900;font-size:32px;color:var(--pink);line-height:1;margin-bottom:14px}
+.pain:nth-child(2) .ic{color:var(--orange)}
+.pain:nth-child(3) .ic{color:var(--blue)}
+.pain h4{font-size:16px;font-weight:800;margin-bottom:9px;letter-spacing:-.3px}
+.pain p{font-size:14px;color:var(--grey);line-height:1.5}
+
+/* what / personalizzazione */
+.what{background:var(--white);border-top:5px solid var(--black);border-bottom:5px solid var(--black)}
+.what .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.what h2{font-size:clamp(26px,4vw,42px);font-weight:900;margin-bottom:20px}
+.what h2 .b{color:var(--blue)}
+.what p{font-size:15.5px;color:var(--ink);margin-bottom:16px;line-height:1.55}
+.what p b{font-weight:700;color:var(--black)}
+.tagrow{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.tagrow span{font-family:'Archivo',sans-serif;font-weight:800;font-size:11px;letter-spacing:.5px;text-transform:uppercase;border:3px solid var(--black);padding:6px 11px;background:var(--paper)}
+.persona-stack{display:flex;flex-direction:column;gap:13px}
+.persona{background:var(--paper);border:4px solid var(--black);padding:15px 17px;display:flex;gap:14px;align-items:center;box-shadow:5px 5px 0 var(--orange)}
+.persona:nth-child(2){box-shadow:5px 5px 0 var(--blue)}
+.persona:nth-child(3){box-shadow:5px 5px 0 var(--pink)}
+.persona .av{width:46px;height:46px;background:var(--orange);border:3px solid var(--black);font-family:'Archivo',sans-serif;font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.persona:nth-child(2) .av{background:var(--blue);color:#fff}
+.persona:nth-child(3) .av{background:var(--pink)}
+.persona .meta b{font-family:'Archivo',sans-serif;font-size:15px;text-transform:uppercase;letter-spacing:-.3px;display:block}
+.persona .meta span{font-size:12px;color:var(--grey);font-weight:600}
+.persona .meta em{font-size:11px;color:var(--blue);font-weight:700;font-style:normal;text-transform:uppercase;letter-spacing:.5px}
+
+/* proof */
+.proof{text-align:center}
+.proof .sec-tag{justify-content:center}
+.proof h2{font-size:clamp(24px,3.6vw,38px);font-weight:900;max-width:26ch;margin:0 auto 40px}
+.proof h2 .b{color:var(--blue)}
+.proof-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:24px;text-align:left;align-items:stretch}
+
+.panel{border:5px solid var(--black);background:var(--white);box-shadow:9px 9px 0 var(--black);display:flex;flex-direction:column}
+.panel-top{background:var(--black);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:11px 15px;border-bottom:4px solid var(--orange)}
+.panel-top .l{font-family:'Archivo',sans-serif;font-weight:900;font-size:14px;letter-spacing:-.5px}
+.panel-top .l .s{color:var(--orange)}
+.panel-top .l small{color:var(--pink);font-size:9px;letter-spacing:1px;margin-left:6px}
+.panel-top .when{font-family:'Archivo',sans-serif;font-weight:800;font-size:10px;letter-spacing:.5px;text-transform:uppercase;background:var(--blue);padding:5px 9px}
+.panel-in{padding:22px;flex:1}
+
+.app-char{display:flex;flex-direction:column;align-items:center;text-align:center;gap:7px;margin-bottom:16px}
+.app-char .av{width:54px;height:54px;background:var(--orange);border:3px solid var(--black);font-family:'Archivo',sans-serif;font-weight:900;font-size:19px;display:flex;align-items:center;justify-content:center}
+.app-char .nm{font-family:'Archivo',sans-serif;font-weight:900;font-size:14px;text-transform:uppercase}
+.app-char .rl{font-size:11px;color:var(--grey);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.att{display:inline-block;background:var(--blue);color:#fff;font-family:'Archivo',sans-serif;font-weight:800;font-size:10px;letter-spacing:.5px;padding:5px 10px;text-transform:uppercase}
+.trust{margin:14px auto 4px;max-width:360px}
+.trust .row{display:flex;justify-content:space-between;align-items:center;font-family:'Archivo',sans-serif;font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.trust .row .val{background:var(--blue);color:#fff;padding:2px 8px}
+.bar{height:14px;border:3px solid var(--black);background:#fff}
+.bar i{display:block;height:100%;width:50%;background:var(--blue)}
+.trust .cap{font-size:10px;color:var(--grey);font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:6px}
+.msg{border-left:4px solid var(--orange);background:#fafafa;padding:13px 15px;margin-top:18px}
+.msg b{font-family:'Archivo',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:5px}
+.msg p{font-size:13px;line-height:1.5;color:var(--ink)}
+
+.radar-wrap{display:flex;flex-direction:column;align-items:center}
+.radar-wrap svg{width:100%;max-width:340px;height:auto}
+.score{font-family:'Archivo',sans-serif;font-weight:900;text-transform:uppercase;font-size:12px;letter-spacing:.5px;margin-top:6px;text-align:center}
+.score b{color:var(--blue);font-size:22px;display:block;letter-spacing:-1px}
+
+/* value */
+.value{background:var(--white);border-bottom:5px solid var(--black)}
+.value h2{font-size:clamp(26px,4vw,42px);font-weight:900;max-width:20ch;margin-bottom:42px}
+.vgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.vcard{border:4px solid var(--black);background:var(--paper);padding:26px 24px;position:relative;overflow:hidden;transition:transform .12s,box-shadow .12s}
+.vcard:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--black)}
+.vcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px}
+.vcard .num{font-family:'Archivo',sans-serif;font-weight:900;font-size:28px;line-height:1}
+.vcard h3{font-size:18px;font-weight:800;margin:9px 0 11px;letter-spacing:-.5px}
+.vcard p{font-size:14px;color:var(--grey);line-height:1.55}
+.v1::before{background:var(--pink)} .v1 .num{color:var(--pink)}
+.v2::before{background:var(--orange)} .v2 .num{color:var(--orange)}
+.v3::before{background:var(--blue)} .v3 .num{color:var(--blue)}
+.v4::before{background:var(--black)} .v4 .num{color:var(--black)}
+
+/* differentiator */
+.diff h2{font-size:clamp(26px,4vw,44px);font-weight:900;max-width:20ch;margin-bottom:38px}
+.diff h2 .y{color:var(--blue)}
+.vs{display:grid;grid-template-columns:1fr 1fr;border:5px solid var(--black);box-shadow:9px 9px 0 var(--black)}
+.col{padding:30px 28px}
+.col.old{background:var(--white)}
+.col.new{background:var(--orange);border-left:5px solid var(--black)}
+.col .lab{font-family:'Archivo',sans-serif;font-weight:900;font-size:14px;letter-spacing:1px;text-transform:uppercase;padding-bottom:13px;margin-bottom:17px;border-bottom:3px solid var(--black)}
+.col ul{list-style:none;display:flex;flex-direction:column;gap:13px}
+.col li{font-size:14.5px;line-height:1.4;padding-left:28px;position:relative;font-weight:500;color:var(--ink)}
+.col.old li::before{content:"\2715";position:absolute;left:0;font-family:'Archivo',sans-serif;font-weight:900;color:#c01818}
+.col.new li::before{content:"\2713";position:absolute;left:0;font-family:'Archivo',sans-serif;font-weight:900;color:var(--black)}
+
+/* final */
+.final{background:var(--blue);color:#fff;text-align:center;border-top:5px solid var(--black)}
+.final h2{font-size:clamp(28px,5vw,54px);font-weight:900;color:#fff;max-width:18ch;margin:0 auto 18px}
+.final p{font-size:17px;font-weight:500;max-width:56ch;margin:0 auto 34px;color:#e7e8ff}
+.final .btn{background:var(--orange);color:var(--black);box-shadow:6px 6px 0 var(--black)}
+.final .btn:hover{box-shadow:9px 9px 0 var(--black)}
+.final .mini{margin-top:18px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#fff}
+
+/* footer */
+.foot{background:var(--black);color:#9a9a9a;padding:38px 0;border-top:5px solid var(--pink)}
+.foot .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.foot .logo{color:#fff}
+.foot .sig{font-family:'Archivo',sans-serif;font-weight:900;font-size:12px;letter-spacing:1px;text-transform:uppercase}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:880px){
+  .nav-links a{display:none}
+  .hero-box{padding:34px 26px}
+  .pain-grid{grid-template-columns:1fr}
+  .what .grid{grid-template-columns:1fr;gap:34px}
+  .proof-grid{grid-template-columns:1fr}
+  .vgrid{grid-template-columns:1fr}
+  .vs{grid-template-columns:1fr}
+  .col.new{border-left:none;border-top:5px solid var(--black)}
+  section{padding:58px 0}
+}
+@media(max-width:520px){
+  .hero{padding:48px 0 50px}
+  .btn.big{font-size:16px;padding:17px 26px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="logo">SALES<span class="s">/</span>GYM<span class="tag">ILCOMMERCIALE.IT</span></div>
+    <nav class="nav-links">
+      <a href="#problema">Il problema</a>
+      <a href="#prodotto">Cos'è</a>
+      <a href="#valore">Valore</a>
+      <a href="#perche">Perché funziona</a>
+    </nav>
+    <a href="#demo" class="btn alt">Prenota una demo</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-box reveal">
+      <span class="hlabel">Simulatore di vendita B2B — Mercato Italia</span>
+      <h1>I tuoi sales si allenano solo dai clienti. Ora possono farlo anche qui.</h1>
+      <p class="sub">Sales Gym è un roleplay di vendita B2B dove la tua forza commerciale affronta buyer realistici del mercato italiano e riceve una valutazione misurabile dopo ogni sessione. Un allenamento propedeutico che prepara la tua rete vendita ad affrontare situazioni reali e velocizza il processo di onboarding con risultati misurabili.</p>
+      <div class="cta-row">
+        <a href="#demo" class="btn big">Prenota una demo →</a>
+        <span class="note">Per reti vendita · PMI · Industria · Enterprise</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section id="problema" style="padding-top:10px">
+  <div class="wrap">
+    <div class="sec-tag pink reveal">Reti vendita B2B</div>
+    <h2 class="reveal">Formare un venditore richiede mesi. E intanto si impara sul campo.</h2>
+    <div class="pain-grid">
+      <div class="pain reveal">
+        <div class="ic">01</div>
+        <h4>Onboarding lento e costoso</h4>
+        <p>Un nuovo inserito impiega mesi a diventare operativo. Nel frattempo è un costo che ancora non rende, e le prime trattative vere diventano il suo terreno di prova.</p>
+      </div>
+      <div class="pain reveal">
+        <div class="ic">02</div>
+        <h4>Si arriva impreparati all'affiancamento</h4>
+        <p>L'affiancamento con l'area manager resta la formazione più preziosa che hai. Sales Gym non lo sostituisce: ci porta il venditore già rodato, così quel tempo si concentra sulle cose che contano davvero.</p>
+      </div>
+      <div class="pain reveal">
+        <div class="ic">03</div>
+        <h4>Il metodo si disperde</h4>
+        <p>Senza uno standard condiviso ognuno vende a modo suo. Il metodo dell'azienda resta nelle teste delle persone — e con loro se ne va.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COS'È + PERSONALIZZAZIONE -->
+<section class="what" id="prodotto">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="sec-tag orange reveal">Cos'è Sales Gym</div>
+        <h2 class="reveal">Buyer realistici, costruiti sulla <span class="b">tua</span> azienda.</h2>
+        <p class="reveal">Il tuo venditore non parla con un chatbot cortese, ma con un buyer che ragiona, alza obiezioni concrete, mette pressione sul prezzo e si apre solo se chi vende fa le domande giuste. Marco, Andrea e Giulia sono esempi: cambiano in base alla dimensione dell'azienda e al settore.</p>
+        <p class="reveal">Per i progetti su misura, buyer e scenari vengono <b>addestrati sulla realtà del cliente</b>: schede tecniche e di prodotto, listini, concorrenza, casi reali e il metodo di vendita dell'azienda. Così il venditore si allena esattamente sulle trattative che incontrerà.</p>
+        <div class="tagrow reveal">
+          <span>Schede tecniche</span><span>Listini</span><span>Concorrenza</span><span>Scenari reali</span><span>Metodo di vendita</span>
+        </div>
+      </div>
+      <div class="persona-stack reveal">
+        <div class="persona"><div class="av">MT</div><div class="meta"><b>Marco Tessari</b><span>Acquisti · Piccola impresa</span></div></div>
+        <div class="persona"><div class="av">AF</div><div class="meta"><b>Andrea Ferretti</b><span>Acquisti · Media-grande</span></div></div>
+        <div class="persona"><div class="av">GM</div><div class="meta"><b>Giulia Moretti</b><span>Procurement · Multinazionale</span><em>+ buyer su misura per te</em></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROVA VISIVA -->
+<section class="proof">
+  <div class="wrap">
+    <div class="sec-tag reveal">Dentro una sessione</div>
+    <h2 class="reveal">La fiducia si muove mossa dopo mossa. A fine sessione, una <span class="b">valutazione</span> su cinque assi.</h2>
+
+    <div class="proof-grid">
+      <!-- live: trust -->
+      <div class="panel reveal">
+        <div class="panel-top">
+          <div class="l">SALES<span class="s">/</span>GYM <small>ILCOMMERCIALE_</small></div>
+          <span class="when">Durante</span>
+        </div>
+        <div class="panel-in">
+          <div class="app-char">
+            <div class="av">AF</div>
+            <div class="nm">Andrea Ferretti</div>
+            <div class="rl">Responsabile Acquisti</div>
+            <span class="att">Ti sta dando attenzione</span>
+          </div>
+          <div class="trust">
+            <div class="row"><span>Fiducia</span><span class="val">50%</span></div>
+            <div class="bar"><i></i></div>
+            <div class="cap">Attenzione iniziale</div>
+          </div>
+          <div class="msg">
+            <b>Andrea</b>
+            <p>Buongiorno, si accomodi. Le dico subito perché l'ho cercata: abbiamo ricevuto una proposta da un altro fornitore. Prima di portarla al management volevo sentire anche voi.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- post: radar -->
+      <div class="panel reveal">
+        <div class="panel-top">
+          <div class="l">Valutazione</div>
+          <span class="when">Dopo</span>
+        </div>
+        <div class="panel-in radar-wrap">
+          <svg viewBox="0 0 400 290" xmlns="http://www.w3.org/2000/svg" aria-label="Diagramma a 5 assi della performance">
+            <!-- grid rings -->
+            <polygon points="200,40 295.1,109.1 258.8,220.9 141.2,220.9 104.9,109.1" fill="none" stroke="#d8d8d2" stroke-width="2"/>
+            <polygon points="200,74 262.8,119.6 238.8,193.4 161.2,193.4 137.2,119.6" fill="none" stroke="#e2e2dc" stroke-width="2"/>
+            <polygon points="200,107 231.4,129.8 219.4,166.7 180.6,166.7 168.6,129.8" fill="none" stroke="#e2e2dc" stroke-width="2"/>
+            <!-- axes -->
+            <g stroke="#cfcfca" stroke-width="2">
+              <line x1="200" y1="140" x2="200" y2="40"/>
+              <line x1="200" y1="140" x2="295.1" y2="109.1"/>
+              <line x1="200" y1="140" x2="258.8" y2="220.9"/>
+              <line x1="200" y1="140" x2="141.2" y2="220.9"/>
+              <line x1="200" y1="140" x2="104.9" y2="109.1"/>
+            </g>
+            <!-- data -->
+            <polygon points="200,68 255.2,122.1 247.6,205.5 171.2,179.6 139.1,120.2" fill="rgba(72,80,255,0.22)" stroke="#4850ff" stroke-width="3"/>
+            <g fill="#ff50ff" stroke="#0a0a0a" stroke-width="1.5">
+              <circle cx="200" cy="68" r="4"/>
+              <circle cx="255.2" cy="122.1" r="4"/>
+              <circle cx="247.6" cy="205.5" r="4"/>
+              <circle cx="171.2" cy="179.6" r="4"/>
+              <circle cx="139.1" cy="120.2" r="4"/>
+            </g>
+            <!-- labels -->
+            <g font-family="Archivo, sans-serif" font-size="11" font-weight="800" fill="#0a0a0a" text-transform="uppercase">
+              <text x="200" y="28" text-anchor="middle">APERTURA</text>
+              <text x="303" y="106" text-anchor="start">ASCOLTO</text>
+              <text x="262" y="243" text-anchor="middle">OBIEZIONI</text>
+              <text x="138" y="243" text-anchor="middle">VALORE</text>
+              <text x="97" y="106" text-anchor="end">CHIUSURA</text>
+            </g>
+          </svg>
+          <div class="score">Punteggio sessione<b>65 / 100</b>Apertura · Ascolto · Obiezioni · Valore · Chiusura</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE -->
+<section class="value" id="valore">
+  <div class="wrap">
+    <div class="sec-tag pink reveal">Cosa ottiene l'azienda</div>
+    <h2 class="reveal">Il valore non è il roleplay. È quello che lascia sulla rete vendita.</h2>
+    <div class="vgrid">
+      <div class="vcard v1 reveal"><div class="num">01</div><h3>Onboarding più rapido</h3><p>I nuovi commerciali si allenano in autonomia e arrivano preparati alle prime trattative reali, riducendo le settimane improduttive prima di diventare operativi.</p></div>
+      <div class="vcard v2 reveal"><div class="num">02</div><h3>Metodo condiviso</h3><p>Tutta la rete si confronta con gli stessi scenari e gli stessi standard. Il metodo di vendita resta dell'azienda, non del singolo venditore.</p></div>
+      <div class="vcard v3 reveal"><div class="num">03</div><h3>Competenze misurabili</h3><p>Ogni sessione è valutata sugli stessi cinque assi. Il responsabile vede chi cresce, su cosa, e dove serve intervenire — dato alla mano, sessione dopo sessione.</p></div>
+      <div class="vcard v4 reveal"><div class="num">04</div><h3>Allenamento quando serve</h3><p>Esercizio illimitato, in autonomia, senza occupare i responsabili commerciali e senza giocarsi opportunità reali per imparare.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENZIATORE -->
+<section class="diff" id="perche">
+  <div class="wrap">
+    <div class="sec-tag orange reveal">Perché funziona</div>
+    <h2 class="reveal">La formazione <span class="y">spiega</span> come vendere. Sales Gym fa <span class="y">allenare</span>.</h2>
+    <div class="vs reveal">
+      <div class="col old">
+        <div class="lab">Formazione tradizionale</div>
+        <ul>
+          <li>Aula, video, e-learning passivo: si ascolta, non si pratica</li>
+          <li>Teoria valida per tutti i mercati, generica sul B2B italiano</li>
+          <li>Nessuna misura: difficile sapere chi è davvero migliorato</li>
+          <li>Standard e uguale per tutti</li>
+        </ul>
+      </div>
+      <div class="col new">
+        <div class="lab">Sales Gym</div>
+        <ul>
+          <li>Si esercita davvero, con buyer che reagiscono e cambiano</li>
+          <li>Buyer addestrati sul B2B italiano</li>
+          <li>Valutazione ripetibile su cinque assi, sessione dopo sessione</li>
+          <li>Allenamento illimitato, 24/7, a costo marginale molto più basso</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINALE -->
+<section class="final" id="demo">
+  <div class="wrap">
+    <h2 class="reveal">Porta il simulatore anche nella tua rete vendita.</h2>
+    <p class="reveal">Ti mostriamo Sales Gym adattato agli scenari del tuo settore, e come adattarlo al metodo di vendita della tua azienda.</p>
+    <a href="mailto:demo@ilcommerciale.it?subject=Demo%20Sales%20Gym" class="btn big reveal">Prenota una demo →</a>
+    <div class="mini reveal">5 sessioni demo personalizzate gratis</div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="logo">SALES<span style="color:var(--orange)">/</span>GYM</div>
+    <div class="sig">powered by ilcommerciale.it</div>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el);});
+</script>
+
+</body>
+</html>
